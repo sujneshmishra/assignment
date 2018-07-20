@@ -124,29 +124,28 @@ class Deck
 		"K" => 10
 	}
 
-	@@deck=[]
 	def initialize
+		@deck = []
 		suits = ["Hearts", "Spade", "Clubs", "Diamonds"].freeze
 		numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"].freeze
 		for x in numbers do
 			for y in suits do
-				@@deck.push("#{x} of #{y}")
+				@deck.push("#{x} of #{y}")
 			end
 		end
 	end
 
 	def shuffle
-		@@deck.shuffle!
+		@deck.shuffle!
 	end
-	@@generated_card
 	def get_card
 		shuffle
-		@@generated_card=@@deck.pop
-		@@generated_card.split(' ')
-		return @@equivalent_number[@@generated_card[0]]
+		@generated_card=@deck.pop
+		@generated_card.split(' ')
+		return @@equivalent_number[@generated_card[0]]
 	end
 	def display
-		puts @@generated_card
+		puts @generated_card
 	end
 end
 
